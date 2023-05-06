@@ -30,6 +30,18 @@
         </form>
         <!-- Form End -->
 
+        <?php  
+          if (isset($_POST['register'])) {
+            $fname      = $_POST['fname'];
+            $email      = $_POST['email'];
+            $phone      = $_POST['phone'];
+            $address    = $_POST['address'];
+
+            $create = "INSERT INTO students (name, email, phone, address) VALUES('$fname', '$email', '$phone', '$address')";
+            $addQuery = mysqli_query($db, $create);
+          }
+        ?>
+
       </div>
     </div>
   </div>
