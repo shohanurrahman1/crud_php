@@ -2,45 +2,51 @@
 <section>
   <div class="container">
     <div class="row">
-      <div class="col-lg-6 offset-lg-3">
-        <h2 class="py-5 text-center">Register Students Information</h2>
+      <div class="col-lg-12">
+        <h2 class="py-5 text-center">Manage All Students</h2>
 
-        <!-- Form Start -->
-        <form action="" method="POST">
-          <div class="mb-3">
-            <label for="" class="form-label">Full Name</label>
-            <input type="text" name="fname" class="form-control" required autocomplete="off">
-          </div>
-          <div class="mb-3">
-            <label for="" class="form-label">Email Address</label>
-            <input type="email" name="email" class="form-control" required autocomplete="off">
-          </div>
-          <div class="mb-3">
-            <label for="" class="form-label">Phone No.</label>
-            <input type="tel" name="phone" class="form-control" required autocomplete="off">
-          </div>
-          <div class="mb-3">
-            <label for="" class="form-label">Present Address</label>
-            <textarea name="address" class="form-control" id="" cols="30" rows="5" required autocomplete="off"></textarea>
-          </div>
+        <!-- Table Start -->
+        <table class="table table-striped table-hover table-bordered">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">#Sl</th>
+              <th scope="col">Full Name</th>
+              <th scope="col">Email Address</th>
+              <th scope="col">Phone Number</th>
+              <th scope="col">Present Address</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
 
-          <div class="d-grid gap-2">
-            <input type="submit" name="register" class="btn btn-success d-block" value="Register Students">
-          </div>
-        </form>
-        <!-- Form End -->
+          <tbody>
+            <?php  
+              $query = "SELECT * FROM students";
+              $read = mysqli_query($db, $query);
+              $i = 0;
 
-        <?php  
-          if (isset($_POST['register'])) {
-            $fname      = $_POST['fname'];
-            $email      = $_POST['email'];
-            $phone      = $_POST['phone'];
-            $address    = $_POST['address'];
+              while ($row = mysqli_fetch_assoc($read)) {
+                $name       = $row['name'];
+                $email      = $row['email'];
+                $phone      = $row['phone'];
+                $address    = $row['address'];
+                $i++;
+                ?>
+                  <tr>
+                    <th scope="row"><?php echo $i; ?></th>
+                    <td><?php echo $name; ?></td>
+                    <td><?php echo $email; ?></td>
+                    <td><?php echo $phone; ?></td>
+                    <td><?php echo $address; ?></td>
+                  </tr>
+             <?php }            
+            ?>            
+          </tbody>
+        </table>
+        <!-- Table End -->
 
-            $create = "INSERT INTO students (name, email, phone, address) VALUES('$fname', '$email', '$phone', '$address')";
-            $addQuery = mysqli_query($db, $create);
-          }
-        ?>
+        <div class="d-grid gap-2">
+          <a href="create.php" class="btn btn-primary text-white">Add New Students</a>
+        </div>
 
       </div>
     </div>
