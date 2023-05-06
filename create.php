@@ -1,9 +1,9 @@
 <?php include "header.php"; ?>
 <section>
-  <div class="container">
+  <div class="container py-5">
     <div class="row">
       <div class="col-lg-6 offset-lg-3">
-        <h2 class="py-5 text-center">Register Students Information</h2>
+        <h2 class="pb-5 text-center">Register Students Information</h2>
 
         <!-- Form Start -->
         <form action="" method="POST">
@@ -26,6 +26,7 @@
 
           <div class="d-grid gap-2">
             <input type="submit" name="register" class="btn btn-success d-block" value="Register Students">
+            <a href="index.php" class="btn btn-secondary text-white">Manage Students</a>
           </div>
         </form>
         <!-- Form End -->
