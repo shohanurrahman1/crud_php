@@ -50,22 +50,22 @@
         
 
         <?php  
-          // if (isset($_POST['register'])) {
-          //   $fname      = $_POST['fname'];
-          //   $email      = $_POST['email'];
-          //   $phone      = $_POST['phone'];
-          //   $address    = $_POST['address'];
+          if (isset($_POST['register'])) {
+            $fname      = $_POST['fname'];
+            $email      = $_POST['email'];
+            $phone      = $_POST['phone'];
+            $address    = $_POST['address'];
 
-          //   $create = "INSERT INTO students (name, email, phone, address) VALUES('$fname', '$email', '$phone', '$address')";
-          //   $addQuery = mysqli_query($db, $create);
+            $update = "UPDATE students SET name='$fname', email='$email', phone='$phone', address='$address' WHERE id='$s_id'";
+            $updateQuery = mysqli_query($db, $update);
 
-          //   if ($addQuery) {
-          //     header("Location: index.php");
-          //   }
-          //   else {
-          //     echo "Something Went Wrong";
-          //   }
-          // }
+            if ($updateQuery) {
+              header("Location: index.php");
+            }
+            else {
+              echo "Something Went Wrong";
+            }
+          }
         ?>
 
       </div>
