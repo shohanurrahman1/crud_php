@@ -25,6 +25,7 @@
               $i = 0;
 
               while ($row = mysqli_fetch_assoc($read)) {
+                $id         = $row['id'];
                 $name       = $row['name'];
                 $email      = $row['email'];
                 $phone      = $row['phone'];
