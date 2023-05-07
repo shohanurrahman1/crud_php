@@ -6,7 +6,7 @@
         <h2 class="py-5 text-center">Manage All Students</h2>
 
         <!-- Table Start -->
-        <table class="table table-striped table-hover table-bordered">
+        <table id="example" class="table table-striped table-hover table-bordered">
           <thead class="table-dark">
             <tr>
               <th scope="col">#Sl</th>
@@ -20,7 +20,7 @@
 
           <tbody>
             <?php  
-              $query = "SELECT * FROM students";
+              $query = "SELECT * FROM students ORDER BY name ASC";
               $read = mysqli_query($db, $query);
               $i = 0;
 
@@ -45,28 +45,28 @@
                             <a href="update.php?id=<?php echo $id;?>"><i class="fa-regular fa-pen-to-square edit"></i></a>
                           </li>
                           <li>
-                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-regular fa-trash-can trush"></i></a>
+                            <a href="" data-bs-toggle="modal" data-bs-target="#del<?php echo $id; ?>"><i class="fa-regular fa-trash-can trush"></i></a>
                           </li>
                         </ul>
                       </div>
 
                       <!-- Modal Start -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Are You Sure?? To Delete <i class="fa-regular fa-face-frown"></i><br> <?php echo $name; ?>!!</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="modal-btn">
-          <button type="button" class="btn btn-danger me-3">Save changes</button>
-          <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancel</button>          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+                      <div class="modal fade" id="del<?php echo $id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="exampleModalLabel">Are You Sure?? To Delete <i class="fa-regular fa-face-frown"></i><br> <?php echo $name; ?>!!</h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="modal-btn">
+                                <a href="index.php?del_id=<?php echo $id; ?>" class="btn btn-danger me-3">Delete</a>
+                                <a href="" class="btn btn-success" data-bs-dismiss="modal">Cancel</a>        
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                       <!-- Modal End -->
 
                     </td>
@@ -85,4 +85,20 @@
     </div>
   </div>
 </section>
+
+<?php  
+  if (isset($_GET['del_id'])) {
+    $delete_Id = $_GET['del_id'];
+    $del_sql = "DELETE FROM students WHERE id='$delete_Id'";
+    $delete_data = mysqli_query($db, $del_sql);
+
+    if ($delete_data) {
+      header("Location: index.php");
+    }
+    else {
+      echo "Ooops!! Something happens Wrong";
+    }
+  }
+?>
+
 <?php include "footer.php"; ?>
