@@ -21,7 +21,7 @@
           </div>
           <div class="mb-3">
             <label for="" class="form-label">Present Address</label>
-            <textarea name="address" class="form-control" id="" cols="30" rows="5" required autocomplete="off"></textarea>
+            <textarea name="address" class="form-control" id="" cols="30" rows="3" required autocomplete="off"></textarea>
           </div>
 
           <div class="d-grid gap-2">
