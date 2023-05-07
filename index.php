@@ -37,6 +37,18 @@
                     <td><?php echo $email; ?></td>
                     <td><?php echo $phone; ?></td>
                     <td><?php echo $address; ?></td>
+                    <td>
+                      <div class="action-btn">
+                        <ul>
+                          <li>
+                            <a href=""><i class="fa-regular fa-pen-to-square edit"></i></a>
+                          </li>
+                          <li>
+                            <a href=""><i class="fa-regular fa-trash-can trush"></i></a>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
                   </tr>
              <?php }            
             ?>            

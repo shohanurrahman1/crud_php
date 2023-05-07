@@ -1,0 +1,15 @@
+.action-btn{
+        padding: 0;
+        margin: 0;
+}
+.action-btn ul li{
+        list-style: none;
+        display: inline;
+        margin: 0px 7px;
+}
+.action-btn ul li .edit{
+        color: green;
+}
+.action-btn ul li .trush{
+        color: red;
+}
