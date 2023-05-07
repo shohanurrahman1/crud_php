@@ -45,10 +45,30 @@
                             <a href="update.php?id=<?php echo $id;?>"><i class="fa-regular fa-pen-to-square edit"></i></a>
                           </li>
                           <li>
-                            <a href=""><i class="fa-regular fa-trash-can trush"></i></a>
+                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-regular fa-trash-can trush"></i></a>
                           </li>
                         </ul>
                       </div>
+
+                      <!-- Modal Start -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Are You Sure?? To Delete <i class="fa-regular fa-face-frown"></i><br> <?php echo $name; ?>!!</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-btn">
+          <button type="button" class="btn btn-danger me-3">Save changes</button>
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancel</button>          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+                      <!-- Modal End -->
+
                     </td>
                   </tr>
              <?php }            
