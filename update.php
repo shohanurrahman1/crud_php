@@ -3,7 +3,7 @@
   <div class="container py-5">
     <div class="row">
       <div class="col-lg-6 offset-lg-3">
-        <h2 class="pb-5 text-center">Register Students Information</h2>
+        <h2 class="pb-5 text-center">Update Students Information</h2>
 
         <!-- Form Start -->
         <form action="" method="POST">
@@ -25,7 +25,7 @@
           </div>
 
           <div class="d-grid gap-2">
-            <input type="submit" name="register" class="btn btn-success d-block" value="Register Students">
+            <input type="submit" name="register" class="btn btn-success d-block" value="Update Student">            
           </div>
           <div class="mb-3 pt-2">
             <a href="index.php">Go Manage Page</a>
@@ -34,22 +34,22 @@
         <!-- Form End -->
 
         <?php  
-          if (isset($_POST['register'])) {
-            $fname      = $_POST['fname'];
-            $email      = $_POST['email'];
-            $phone      = $_POST['phone'];
-            $address    = $_POST['address'];
+          // if (isset($_POST['register'])) {
+          //   $fname      = $_POST['fname'];
+          //   $email      = $_POST['email'];
+          //   $phone      = $_POST['phone'];
+          //   $address    = $_POST['address'];
 
-            $create = "INSERT INTO students (name, email, phone, address) VALUES('$fname', '$email', '$phone', '$address')";
-            $addQuery = mysqli_query($db, $create);
+          //   $create = "INSERT INTO students (name, email, phone, address) VALUES('$fname', '$email', '$phone', '$address')";
+          //   $addQuery = mysqli_query($db, $create);
 
-            if ($addQuery) {
-              header("Location: index.php");
-            }
-            else {
-              echo "Something Went Wrong";
-            }
-          }
+          //   if ($addQuery) {
+          //     header("Location: index.php");
+          //   }
+          //   else {
+          //     echo "Something Went Wrong";
+          //   }
+          // }
         ?>
 
       </div>

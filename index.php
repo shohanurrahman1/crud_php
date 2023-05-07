@@ -42,7 +42,7 @@
                       <div class="action-btn">
                         <ul>
                           <li>
-                            <a href=""><i class="fa-regular fa-pen-to-square edit"></i></a>
+                            <a href="update.php?id=<?php echo $id;?>"><i class="fa-regular fa-pen-to-square edit"></i></a>
                           </li>
                           <li>
                             <a href=""><i class="fa-regular fa-trash-can trush"></i></a>
