@@ -5,6 +5,6 @@
 		// echo "Ok";
 	}
 	else{
-		echo "Database Connection Failed";
+		die("Connection Failed!") .mysqli_error($db);
 	}
 ?>
